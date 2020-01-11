@@ -24,9 +24,12 @@ class Analyzer extends RulesPlugin {
     if (tree && utils.keyExists(tree, 'childNodes')) {
       const tag = tree.nodeName;
       const rulesByTag = this.getRulesByTagName(tag);
+
       Object.keys(rulesByTag).forEach((rule) => {
-        rulesByTag[rule](tree, this);
+        const fn = this.getRule(tag, rule);
+        if (fn !== 0) fn(tree, this);
       });
+
       for (let i = 0, iBound = tree.childNodes.length; i < iBound; i++) {
         this.iterator(tree.childNodes[i], level + 1);
       }
