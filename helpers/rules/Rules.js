@@ -8,6 +8,19 @@ class Rules {
   }
 
   setRule(tagName, obj) {
+    if (
+      typeof tagName !== 'string'
+      || tagName === null
+      || tagName === ''
+      || typeof obj !== 'object'
+      || !keyExists(obj, 'ruleName')
+      || typeof obj.ruleName !== 'string'
+      || !keyExists(obj, 'fn')
+      || typeof obj.fn !== 'function'
+    ) {
+      return false;
+    }
+
     if (keyExists(this.rulesBuffer, tagName)) {
       this.rulesBuffer[tagName] = {
         ...this.rulesBuffer[tagName],
@@ -18,6 +31,7 @@ class Rules {
         [obj.ruleName]: obj.fn,
       };
     }
+    return true;
   }
 
   getRule(tagName, ruleName) {
@@ -25,7 +39,7 @@ class Rules {
       keyExists(this.rulesBuffer, tagName)
       && keyExists(this.rulesBuffer[tagName], ruleName)
     ) return this.rulesBuffer[tagName][ruleName];
-    return {};
+    return 0;
   }
 
   getRulesByTagName(tagName) {
