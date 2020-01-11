@@ -16,7 +16,7 @@ pluginList.forEach((pluginName) => {
 
     if (pluginExists) {
       const plugin = require(pluginPath); // eslint-disable-line
-      it('must have name', () => {
+      it('must have satisfy all constraints', () => {
         if (
           pluginConstraint(plugin)
         ) throw new Error();
