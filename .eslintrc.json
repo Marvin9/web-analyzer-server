@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": [
         "airbnb-base"
@@ -17,5 +18,19 @@
     "rules": {
       "no-plusplus": "off",
       "no-param-reassign": "warn"
-    }
+    },
+    "overrides": [
+      {
+        "files": ["helpers/rules/list/*"],
+        "rules": {
+          "no-param-reassign": "off"
+        }
+      },
+      {
+        "files": ["tests/*"],
+        "rules": {
+          "no-unused-vars": "off"
+        }
+      }
+    ]
 }
