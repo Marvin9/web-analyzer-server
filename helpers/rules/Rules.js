@@ -10,7 +10,6 @@ class Rules {
   setRule(tagName, obj) {
     if (
       typeof tagName !== 'string'
-      || tagName === null
       || tagName === ''
       || typeof obj !== 'object'
       || !keyExists(obj, 'ruleName')
