@@ -11,11 +11,11 @@ const plugin = {
   },
   end: (an) => {
     if (an.locals.title === 0) {
-      an.report.push({
+      an.report = [...an.report, {
         ruleName: plugin.ruleName,
         desc: plugin.desc,
         example: plugin.example,
-      });
+      }];
     }
   },
 };

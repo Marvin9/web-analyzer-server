@@ -30,7 +30,7 @@ class Rules {
 
   getRulesByTagName(tagName) {
     if (keyExists(this.rulesBuffer, tagName)) return this.rulesBuffer[tagName];
-    return 0;
+    return {};
   }
 }
 

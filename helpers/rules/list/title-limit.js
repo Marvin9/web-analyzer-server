@@ -6,11 +6,11 @@ const plugin = {
   plugin: (node, an) => {
     const text = node.childNodes[0].value;
     if (text.length > 70) {
-      an.report.push({
+      an.report = [...an.report, {
         ruleName: plugin.ruleName,
         desc: plugin.desc,
         example: plugin.example,
-      });
+      }];
     }
   },
 };
