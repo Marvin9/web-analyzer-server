@@ -13,7 +13,8 @@ analyzer.get('/analyze', (req, res) => {
   generateTree(url, (err, tree) => {
     if (err) res.status(404).send('Fail'); // todo handle error
     else {
-      an.iterator(tree);
+      an.reporter(tree);
+      res.send(an.report);
     }
   });
 });
