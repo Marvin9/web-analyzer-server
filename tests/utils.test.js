@@ -12,6 +12,6 @@ describe('keyExists', () => {
 
   it('should return true if key exist in object', () => {
     expect(utils.keyExists(obj, 'key')).toBeTruthy();
-    expect(utils.keyExists(obj, 'key')).toBeTruthy();
+    expect(utils.keyExists(obj, 'anotherKey')).toBeTruthy();
   });
 });
