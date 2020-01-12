@@ -4,7 +4,7 @@ const parse5 = require('parse5');
 const generateTree = (url, cb) => {
   request(url, (err, res, body) => {
     if (err) cb(err, null);
-    else if (res.statusCode !== 200) cb({ error: 200 },null);
+    else if (res.statusCode !== 200) cb({ error: 200 }, null);
     else cb(null, parse5.parse(body));
   });
 };

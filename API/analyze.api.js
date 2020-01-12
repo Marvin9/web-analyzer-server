@@ -17,17 +17,17 @@ analyzer.get('/analyze', (req, res) => {
         res.send({
           error: true,
           desc: 'Url was forbidden',
-          code: 200
+          code: 200,
+        });
+      } else {
+        res.status(404).send({
+          error: true,
+          code: 404,
+          desc: 'Internal error',
+          err,
         });
       }
-      else res.status(404).send({
-        error: true,
-        code: 404,
-        desc: 'Internal error',
-        err
-      });
-    } // todo handle error
-    else {
+    } else {
       an.reporter(tree);
       res.send(an.report);
     }
