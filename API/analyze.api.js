@@ -7,6 +7,7 @@ const { generateTree } = require('../helpers/utils');
 const an = new Analyzer();
 
 analyzer.get('/analyze', (req, res) => {
+  an.report = [];
   const url = req.query || null;
   // todo validate url
 
