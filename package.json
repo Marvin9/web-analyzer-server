@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "debug": "set DEBUG=* & node index.js",
-    "dev": "set DEBUG=* & nodemon index.js",
+    "dev": "nodemon index.js",
     "lint": "eslint ./"
   },
   "keywords": [
