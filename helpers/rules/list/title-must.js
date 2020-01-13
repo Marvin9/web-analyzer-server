@@ -1,3 +1,5 @@
+const { objectOfPlugin } = require('../../utils');
+
 const plugin = {
   tag: 'title',
   ruleName: 'title-must',
@@ -10,12 +12,15 @@ const plugin = {
     an.locals.title++;
   },
   end: (an) => {
+    const rule = objectOfPlugin(plugin);
     if (an.locals.title === 0) {
-      an.report = [...an.report, {
-        ruleName: plugin.ruleName,
-        desc: plugin.desc,
-        example: plugin.example,
-      }];
+      an.report = [...an.report, Object.assign(rule, {
+        follow: false,
+      })];
+    } else {
+      an.report = [...an.report, Object.assign(rule, {
+        follow: true,
+      })];
     }
   },
 };

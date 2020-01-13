@@ -14,7 +14,14 @@ const keyExists = (obj, key) => {
   return Object.prototype.hasOwnProperty.call(obj, key);
 };
 
+const objectOfPlugin = (plugin) => ({
+  ruleName: plugin.ruleName,
+  desc: plugin.desc,
+  example: plugin.example,
+});
+
 module.exports = {
   generateTree,
   keyExists,
+  objectOfPlugin,
 };

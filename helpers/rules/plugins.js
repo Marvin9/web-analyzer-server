@@ -1,4 +1,4 @@
 module.exports = [
-  'title-must',
   'title-limit',
+  'title-must',
 ];
