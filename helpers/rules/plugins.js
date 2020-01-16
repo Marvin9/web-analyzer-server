@@ -4,4 +4,5 @@ module.exports = [
   'meta-description',
   'only-one-h1',
   'img-alt',
+  'rel-canonical',
 ];
