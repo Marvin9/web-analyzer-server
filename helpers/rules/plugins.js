@@ -5,4 +5,5 @@ module.exports = [
   'only-one-h1',
   'img-alt',
   'rel-canonical',
+  'meta-responsive',
 ];
