@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const pluginList = require('../helpers/rules/plugins');
+const { allRules } = require('../helpers/rules/plugins');
 const pluginConstraint = require('./plugin.constrains');
 
-pluginList.forEach((pluginName) => {
+allRules.forEach((pluginName) => {
   describe(pluginName, () => {
     const pluginPath = path.resolve(process.cwd(), `./helpers/rules/list/${pluginName}.js`);
     const pluginExists = fs.existsSync(pluginPath);
