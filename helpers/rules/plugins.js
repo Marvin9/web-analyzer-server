@@ -1,4 +1,4 @@
-module.exports = [
+const plugins = [
   'title-limit',
   'title-must',
   'meta-description',
@@ -7,3 +7,13 @@ module.exports = [
   'rel-canonical',
   'meta-responsive',
 ];
+
+const allRules = [
+  ...plugins,
+  'robots-txt',
+];
+
+module.exports = {
+  plugins,
+  allRules,
+};
