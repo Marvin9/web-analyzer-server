@@ -28,8 +28,9 @@ analyzer.get('/analyze', (req, res) => {
         });
       }
     } else {
-      an.reporter(tree);
-      res.send(an.report);
+      an.reporter(tree, url.url, () => {
+        res.send(an.report);
+      });
     }
   });
 });

@@ -1,5 +1,6 @@
 const utils = require('./utils');
 const RulesPlugin = require('./rules/RulesPlugin');
+const robotsTxt = require('./rules/list/robots-txt');
 
 class Analyzer extends RulesPlugin {
   constructor(tree = {}) {
@@ -10,14 +11,19 @@ class Analyzer extends RulesPlugin {
     this.report = [];
   }
 
-  reporter(tree = this.tree) {
-    this.enterBuffer.forEach((buffer) => {
-      buffer(this);
-    });
-    this.iterator(tree);
-    this.exitBuffer.forEach((buffer) => {
-      buffer(this);
-    });
+  reporter(tree = this.tree, url, cb) {
+    this.url = url;
+    robotsTxt.plugin(null, this)
+      .then(() => {
+        this.enterBuffer.forEach((buffer) => {
+          buffer(this);
+        });
+        this.iterator(tree);
+        this.exitBuffer.forEach((buffer) => {
+          buffer(this);
+        });
+        cb(this.report);
+      });
   }
 
   iterator(tree = this.tree, level = this.level) {
@@ -27,6 +33,7 @@ class Analyzer extends RulesPlugin {
 
       Object.keys(rulesByTag).forEach((rule) => {
         const fn = this.getRule(tag, rule);
+
         if (fn !== 0) fn(tree, this);
       });
 
