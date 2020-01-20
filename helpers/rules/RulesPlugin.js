@@ -1,6 +1,6 @@
 const debug = require('debug')('plugins');
 const Rules = require('./Rules');
-const plugins = require('./plugins');
+const { plugins } = require('./plugins');
 const { keyExists } = require('../utils');
 
 class RulesPlugin extends Rules {

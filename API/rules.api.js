@@ -1,9 +1,9 @@
 const express = require('express');
 
 const rules = express.Router();
-const plugins = require('../helpers/rules/plugins');
+const { allRules } = require('../helpers/rules/plugins');
 
-const structuredResponse = plugins.map((plugin) => {
+const structuredResponse = allRules.map((plugin) => {
   const pluginPath = `../helpers/rules/list/${plugin}.js`;
   const {
     tag, ruleName, desc, example,
