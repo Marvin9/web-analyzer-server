@@ -32,8 +32,11 @@ describe('sanitizeUrl', () => {
   });
 
   it('should return correct string for url containing -> protocol + subdomain + domain', () => {
-
-    checkForSameInputAndOutput([standardGithubURL, standardGithubURLWithPath, standardGithubURLWithQuery]);
+    checkForSameInputAndOutput([
+      standardGithubURL,
+      standardGithubURLWithPath,
+      standardGithubURLWithQuery,
+    ]);
   });
 
   it('should return correct string (with subdomain as "www") for url containing -> protocol + domain', () => {
@@ -48,7 +51,6 @@ describe('sanitizeUrl', () => {
 
   it('should return correct string (with protocol as "https") for url containing -> subdomain + domain', () => {
     const url = 'www.github.com';
-    const url2 = 'www.google.com';
 
     expect(utils.sanitizeUrl(url)).toBe(standardGithubURL);
   });
