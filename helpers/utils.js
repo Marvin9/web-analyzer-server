@@ -34,7 +34,7 @@ const sanitizeUrl = (url) => {
 
   if (protocolDomain.test(url)) {
     const sanitizedUrl = urlUtil.parse(url);
-    return `${sanitizedUrl.protocol}//www.${sanitizedUrl.host}${sanitizedUrl.path}`;
+    return `${sanitizedUrl.protocol}//www.${sanitizedUrl.host}${sanitizedUrl.path === '/' ? '' : sanitizedUrl.path}`;
   }
 
   if (subdomainDomain.test(url)) {
