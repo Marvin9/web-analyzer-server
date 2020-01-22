@@ -10,11 +10,11 @@ analyzer.get('/analyze', (req, res) => {
   an.report = [];
   const url = req.query || null;
   // todo validate url
-  if (url.url.length > 2048) {
+  if (url === null || url.url.length > 2048) {
     res.send({
       error: true,
       code: 404,
-      desc: 'Url length should not exceed 2048 characters',
+      desc: 'Url length should not exceed 2048 characters or it should not be null',
     });
   } else {
     const sanitizedUrl = sanitizeUrl(url.url);
