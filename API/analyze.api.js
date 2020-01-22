@@ -17,7 +17,7 @@ analyzer.get('/analyze', (req, res) => {
       desc: 'Url length should not exceed 2048 characters',
     });
   } else {
-	const sanitizedUrl = sanitizeUrl(url.url);
+    const sanitizedUrl = sanitizeUrl(url.url);
     generateTree(sanitizedUrl, (err, tree) => {
       if (err) {
         if (err.error) {
