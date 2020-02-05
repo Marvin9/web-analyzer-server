@@ -10,7 +10,13 @@ analyzer.get('/analyze', (req, res) => {
   an.report = [];
   const url = req.query || null;
   // todo validate url
-  if (url === null || url.url.length > 2048) {
+  if (
+    url === null
+    || url === undefined
+    || url.url === null
+    || url.url === undefined
+    || url.url.length > 2048
+    ) {
     res.send({
       error: true,
       code: 404,
